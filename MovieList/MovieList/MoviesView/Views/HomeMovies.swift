@@ -1,5 +1,5 @@
 //
-//  MoviesView.swift
+//  HomeMovies.swift
 //  MovieList
 //
 //  Created by JASS on 24/05/24.
@@ -7,9 +7,12 @@
 
 import SwiftUI
 
-struct MoviesView: View {
+struct HomeMovies: View {
     
     @StateObject var viewModel = MovieViewModel()
+    private let adaptiveColumn = [
+        GridItem(.adaptive(minimum: 156))
+    ]
     
     var body: some View {
         
@@ -26,11 +29,11 @@ struct MoviesView: View {
                 
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
-        }.onAppear() {
-            viewModel.getPopularMovies()
-            viewModel.getTopRatedMovies()
-        }
-        .edgesIgnoringSafeArea(.bottom)
+            SearchBar(search: viewModel.typeSelect == .popular ? $viewModel.searchPopular : $viewModel.searchTopRated, showFilters: $viewModel.showFilters, callback: { search in
+                viewModel.searchMovies(search: search)
+            })
+            
+        }.edgesIgnoringSafeArea(.bottom)
     }
     
     @ViewBuilder
@@ -50,15 +53,15 @@ struct MoviesView: View {
         
         ScrollView(.vertical, showsIndicators: true) {
             
-            LazyVStack(spacing: 16) {
+            LazyVGrid(columns: adaptiveColumn, spacing: 16) {
                 
-                ForEach((viewModel.popularMovies?.results ?? []), id: \.id) { movies in
+                ForEach(viewModel.popularMovies, id: \.id) { movies in
                     
                     MovieCard(movie: movies)
                         .environmentObject(viewModel)
                 }
-            }
-            
+                
+            }.padding(16)
         }
     }
     
@@ -67,19 +70,19 @@ struct MoviesView: View {
         
         ScrollView(.vertical, showsIndicators: true) {
             
-            LazyVStack(spacing: 16) {
+            LazyVGrid(columns: adaptiveColumn, spacing: 16) {
                 
-                ForEach((viewModel.topRatedMovies?.results ?? []), id: \.id) { movies in
+                ForEach(viewModel.topRatedMovies, id: \.id) { movies in
                     
                     MovieCard(movie: movies)
                         .environmentObject(viewModel)
                 }
-            }
-            
+                
+            }.padding(16)
         }
     }
 }
 
 #Preview {
-    MoviesView()
+    HomeMovies()
 }
