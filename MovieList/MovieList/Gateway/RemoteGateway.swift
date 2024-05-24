@@ -10,9 +10,7 @@ import Alamofire
 
 struct RemoteGateway {
     
-    static var headers: HTTPHeaders = [.authorization(bearerToken: Constants.bearerToken)]
-    
-    static func basicRequest (url: String, body: [String: Any]?, headers: HTTPHeaders, method: HTTPMethod, successCallback: @escaping (Data) -> Void, errorCallback: @escaping (Data) -> Void, networkErrorCallback: @escaping (AFError) -> Void) {
+    static func basicRequest (url: String, body: [String: Any]? = nil, headers: HTTPHeaders = [.authorization(bearerToken: Constants.bearerToken)], method: HTTPMethod, successCallback: @escaping (Data) -> Void, errorCallback: @escaping (Data) -> Void, networkErrorCallback: @escaping (AFError) -> Void) {
         
         AF.request("\(Constants.api)\(url)", method: method, parameters: body, encoding: JSONEncoding.default, headers: headers)
             .responseData { response in

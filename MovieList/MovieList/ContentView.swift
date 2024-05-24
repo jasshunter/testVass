@@ -9,19 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-            Text("Hello, world!")
-        }.onAppear() {
-            UseCases().getPopularMovies(successCallback: { data in
-                print("DDDD: \(data)")
-            }, errorCallback: { error in }, networkErrorCallback: { error in })
-            
-            /*RemoteGateway.basicRequest(url: Constants.popular, body: nil, headers: RemoteGateway.headers, method: .get, successCallback: { data in
-            }, errorCallback: { error in }, networkErrorCallback: { error in })*/
-        }
-        .padding()
+        MoviesView()
     }
 }
 
