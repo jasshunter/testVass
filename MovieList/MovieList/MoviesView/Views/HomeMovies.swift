@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeMovies: View {
     
+    @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
     @StateObject var viewModel = MovieViewModel()
     private let adaptiveColumn = [
         GridItem(.adaptive(minimum: 156))
@@ -32,6 +33,7 @@ struct HomeMovies: View {
             SearchBar(search: viewModel.typeSelect == .popular ? $viewModel.searchPopular : $viewModel.searchTopRated, showFilters: $viewModel.showFilters, callback: { search in
                 viewModel.searchMovies(search: search)
             })
+            .offset(y: -self.keyboardHeightHelper.keyboardHeight)
             
         }.edgesIgnoringSafeArea(.bottom)
     }

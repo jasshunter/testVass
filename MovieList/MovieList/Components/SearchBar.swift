@@ -38,6 +38,7 @@ struct SearchBar: View {
             }
             
         }.padding()
+            .background(Color.white)
     }
 }
 
