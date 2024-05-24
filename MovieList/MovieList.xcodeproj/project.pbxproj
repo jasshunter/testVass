@@ -14,6 +14,11 @@
 		48B436B62C003D4400B38B03 /* MovieListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436B52C003D4400B38B03 /* MovieListTests.swift */; };
 		48B436C02C003D4400B38B03 /* MovieListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436BF2C003D4400B38B03 /* MovieListUITests.swift */; };
 		48B436C22C003D4400B38B03 /* MovieListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436C12C003D4400B38B03 /* MovieListUITestsLaunchTests.swift */; };
+		48B436D02C0069C900B38B03 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 48B436CF2C0069C900B38B03 /* Alamofire */; };
+		48B436D32C006A6000B38B03 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 48B436D22C006A6000B38B03 /* SDWebImageSwiftUI */; };
+		48B436D62C006ADB00B38B03 /* RemoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436D52C006ADB00B38B03 /* RemoteGateway.swift */; };
+		48B436D82C006BCC00B38B03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436D72C006BCC00B38B03 /* Constants.swift */; };
+		48B436DA2C00716E00B38B03 /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436D92C00716E00B38B03 /* UseCases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,9 @@
 		48B436BB2C003D4400B38B03 /* MovieListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B436BF2C003D4400B38B03 /* MovieListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUITests.swift; sourceTree = "<group>"; };
 		48B436C12C003D4400B38B03 /* MovieListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		48B436D52C006ADB00B38B03 /* RemoteGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGateway.swift; sourceTree = "<group>"; };
+		48B436D72C006BCC00B38B03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		48B436D92C00716E00B38B03 /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B436D32C006A6000B38B03 /* SDWebImageSwiftUI in Frameworks */,
+				48B436D02C0069C900B38B03 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +105,13 @@
 		48B436A22C003D4200B38B03 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				48B436D42C006ACC00B38B03 /* Gateway */,
 				48B436A32C003D4200B38B03 /* MovieListApp.swift */,
 				48B436A52C003D4200B38B03 /* ContentView.swift */,
 				48B436A72C003D4400B38B03 /* Assets.xcassets */,
 				48B436A92C003D4400B38B03 /* MovieList.entitlements */,
 				48B436AA2C003D4400B38B03 /* Preview Content */,
+				48B436D72C006BCC00B38B03 /* Constants.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -129,6 +141,15 @@
 			path = MovieListUITests;
 			sourceTree = "<group>";
 		};
+		48B436D42C006ACC00B38B03 /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				48B436D52C006ADB00B38B03 /* RemoteGateway.swift */,
+				48B436D92C00716E00B38B03 /* UseCases.swift */,
+			);
+			path = Gateway;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +166,10 @@
 			dependencies = (
 			);
 			name = MovieList;
+			packageProductDependencies = (
+				48B436CF2C0069C900B38B03 /* Alamofire */,
+				48B436D22C006A6000B38B03 /* SDWebImageSwiftUI */,
+			);
 			productName = MovieList;
 			productReference = 48B436A02C003D4200B38B03 /* MovieList.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +242,10 @@
 				Base,
 			);
 			mainGroup = 48B436972C003D4200B38B03;
+			packageReferences = (
+				48B436CE2C0069C900B38B03 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				48B436D12C006A6000B38B03 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 48B436A12C003D4200B38B03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B436D62C006ADB00B38B03 /* RemoteGateway.swift in Sources */,
 				48B436A62C003D4200B38B03 /* ContentView.swift in Sources */,
+				48B436DA2C00716E00B38B03 /* UseCases.swift in Sources */,
 				48B436A42C003D4200B38B03 /* MovieListApp.swift in Sources */,
+				48B436D82C006BCC00B38B03 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +641,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		48B436CE2C0069C900B38B03 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		48B436D12C006A6000B38B03 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		48B436CF2C0069C900B38B03 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48B436CE2C0069C900B38B03 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		48B436D22C006A6000B38B03 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48B436D12C006A6000B38B03 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 48B436982C003D4200B38B03 /* Project object */;
 }
