@@ -15,7 +15,7 @@ class UseCases {
     //MARK: Get popular movies
     func getPopularMovies(successCallback: @escaping (MovieResponse) -> Void, errorCallback: @escaping (NSDictionary) -> Void, networkErrorCallback: @escaping (AFError) -> Void) {
         
-        RemoteGateway.basicRequest(url: Constants.popular, method: .get, successCallback: { data in
+        Gateway.basicRequest(url: Constants.popular, method: .get, successCallback: { data in
             
             do {
                 let decodedElement = try self.decoder.decode(MovieResponse.self, from: data)
@@ -31,7 +31,7 @@ class UseCases {
     //MARK: Get top rated movies
     func getTopRatedMovies(successCallback: @escaping (MovieResponse) -> Void, errorCallback: @escaping (NSDictionary) -> Void, networkErrorCallback: @escaping (AFError) -> Void) {
         
-        RemoteGateway.basicRequest(url: Constants.topRated, method: .get, successCallback: { data in
+        Gateway.basicRequest(url: Constants.topRated, method: .get, successCallback: { data in
             
             do {
                 let decodedElement = try self.decoder.decode(MovieResponse.self, from: data)

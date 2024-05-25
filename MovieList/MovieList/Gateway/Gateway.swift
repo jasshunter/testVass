@@ -1,5 +1,5 @@
 //
-//  RemoteGateway.swift
+//  Gateway.swift
 //  MovieList
 //
 //  Created by JASS on 24/05/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-struct RemoteGateway {
+struct Gateway {
     
     static func basicRequest (url: String, body: [String: Any]? = nil, headers: HTTPHeaders = [.authorization(bearerToken: Constants.bearerToken)], method: HTTPMethod, successCallback: @escaping (Data) -> Void, errorCallback: @escaping (Data) -> Void, networkErrorCallback: @escaping (AFError) -> Void) {
         

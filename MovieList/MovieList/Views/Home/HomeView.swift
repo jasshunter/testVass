@@ -1,5 +1,5 @@
 //
-//  HomeMovies.swift
+//  HomeView.swift
 //  MovieList
 //
 //  Created by JASS on 24/05/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeMovies: View {
+struct HomeView: View {
     
     @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
     @StateObject var viewModel = MovieViewModel()
@@ -90,5 +90,5 @@ struct HomeMovies: View {
 }
 
 #Preview {
-    HomeMovies()
+    HomeView()
 }
