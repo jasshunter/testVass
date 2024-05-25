@@ -42,7 +42,7 @@ struct FiltersView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
-                    ToggleOption(label: LocalizedStringKey("For adults"), isOn: $viewModel.filterAdultTopRated)
+                    ToggleOption(label: LocalizedStringKey("For adults"), isOn: viewModel.typeSelect == .popular ? $viewModel.filterAdultPopular : $viewModel.filterAdultTopRated)
                     
                     Divider()
                     
