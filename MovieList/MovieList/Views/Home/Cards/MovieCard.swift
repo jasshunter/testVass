@@ -21,19 +21,18 @@ struct MovieCard: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: 236)
+                .clipped()
             
-            VStack(spacing: 6) {
+            VStack(alignment: .leading, spacing: 6) {
                 
                 Text(movie.originalTitle ?? "")
                     .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
                 
                 Text(movie.releaseDate ?? "")
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 
-            }.frame(height: 100)
+            }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .padding(.horizontal, 16)
             
         }.frame(height: 336)
