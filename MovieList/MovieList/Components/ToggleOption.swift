@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ToggleOption: View {
     
-    var label: String = "Toggle Option"
+    var label: LocalizedStringKey = "For adults"
     @Binding var isOn: Bool
     var disabled: Bool = false
     

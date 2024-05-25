@@ -25,6 +25,7 @@ struct MovieCard: View {
             VStack(spacing: 6) {
                 
                 Text(movie.originalTitle ?? "")
+                    .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)

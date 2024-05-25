@@ -17,38 +17,45 @@ struct HomeView: View {
     
     var body: some View {
         
-        VStack(spacing: 0) {
-            
-            PickerView()
-            
-            TabView(selection: $viewModel.typeSelect) {
+        NavigationView {
+         
+            VStack(spacing: 0) {
                 
-                ScrollPopularMovies()
-                    .tag(MovieType.popular)
-                ScrollTopRatedMovies()
-                    .tag(MovieType.topRated)
+                PickerView()
                 
-            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            
-            SearchBar(search: viewModel.typeSelect == .popular ? $viewModel.searchPopular : $viewModel.searchTopRated, showFilters: $viewModel.showFilters, callback: { search in
-                viewModel.searchMovies(search: search)
-            })
-            .offset(y: -self.keyboardHeightHelper.keyboardHeight)
-            
-        }.edgesIgnoringSafeArea(.bottom)
-            .sheet(isPresented: $viewModel.showFilters) {
-                FiltersView()
-                    .environmentObject(viewModel)
-            }
+                TabView(selection: $viewModel.typeSelect) {
+                    
+                    ScrollPopularMovies()
+                        .tag(MovieType.popular)
+                    ScrollTopRatedMovies()
+                        .tag(MovieType.topRated)
+                    
+                }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                
+                SearchBar(search: viewModel.typeSelect == .popular ? $viewModel.searchPopular : $viewModel.searchTopRated, showFilters: $viewModel.showFilters, callback: { search in
+                    viewModel.searchMovies(search: search)
+                })
+                .offset(y: -self.keyboardHeightHelper.keyboardHeight)
+                
+            }.background(Color.white)
+                .edgesIgnoringSafeArea(.bottom)
+                .background(Color.red)
+                .sheet(isPresented: $viewModel.showFilters) {
+                    FiltersView()
+                        .environmentObject(viewModel)
+                }
+                .navigationTitle(LocalizedStringKey("Movies"))
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
     
     @ViewBuilder
     func PickerView() -> some View {
         
-        Picker("Select Movie Type", selection: $viewModel.typeSelect) {
-            Text("Popular")
+        Picker(LocalizedStringKey("Select movie type"), selection: $viewModel.typeSelect) {
+            Text(LocalizedStringKey("Popular"))
                 .tag(MovieType.popular)
-            Text("Top Rated")
+            Text(LocalizedStringKey("Top rated"))
                 .tag(MovieType.topRated)
         }
         .pickerStyle(.segmented)

@@ -33,7 +33,7 @@ struct FiltersView: View {
                 }.padding()
             }
             
-            Text("Filtros")
+            Text(LocalizedStringKey("Filters"))
                 .padding(.vertical, 8)
             
             Divider()
@@ -42,7 +42,7 @@ struct FiltersView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
-                    ToggleOption(label: "Para adultos", isOn: viewModel.typeSelect == .popular ? $viewModel.filterAdultPopular : $viewModel.filterAdultTopRated)
+                    ToggleOption(label: LocalizedStringKey("For adults"), isOn: $viewModel.filterAdultTopRated)
                     
                     Divider()
                     
@@ -60,7 +60,7 @@ struct FiltersView: View {
                 viewModel.filterMovies()
             }) {
                 
-                Text("Filtrar")
+                Text(LocalizedStringKey("Filter"))
                     .foregroundColor(Color.white)
                     .padding(.vertical, 16)
                     .frame(maxWidth: .infinity)
@@ -78,7 +78,7 @@ struct FiltersView: View {
         
         VStack(alignment: .leading, spacing: 16) {
             
-            Text("Lenguaje original")
+            Text(LocalizedStringKey("Original language"))
             
             LazyVGrid(columns: adaptiveColumn, spacing: 16) {
                 
@@ -95,15 +95,15 @@ struct FiltersView: View {
         
         VStack(alignment: .leading, spacing: 16) {
             
-            Text("Rango de votos")
+            Text(LocalizedStringKey("Vote average"))
             
             Slider(value: viewModel.typeSelect == .popular ? $viewModel.selectVoteAveragePopular : $viewModel.selectVoteAverageTopRated, in: 0...100, step: 5)
             {
-                Text("voteAverage")
+                Text(LocalizedStringKey("Vote average"))
             } minimumValueLabel: {
-                Text("0")
+                Text(LocalizedStringKey("0"))
             } maximumValueLabel: {
-                Text("100")
+                Text(LocalizedStringKey("100"))
             }
             
             Text("\(Int(viewModel.typeSelect == .popular ? viewModel.selectVoteAveragePopular : viewModel.selectVoteAverageTopRated))")

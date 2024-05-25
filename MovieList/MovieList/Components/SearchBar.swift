@@ -20,7 +20,7 @@ struct SearchBar: View {
             HStack {
                 
                 Image(systemName: "magnifyingglass")
-                TextField("Search...", text: $search)
+                TextField(LocalizedStringKey("Search..."), text: $search)
                     .onChange(of: self.search) { newValue in
                         callback(newValue)
                     }
