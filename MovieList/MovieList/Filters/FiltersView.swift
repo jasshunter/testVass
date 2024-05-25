@@ -57,16 +57,17 @@ struct FiltersView: View {
             
             Button(action: {
                 
+                viewModel.filterMovies()
             }) {
                 
                 Text("Filtrar")
                     .foregroundColor(Color.white)
-                
-            }.padding(.vertical, 16)
-                .frame(maxWidth: .infinity)
-                .background(Color.blue)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .padding(.horizontal)
+                    .padding(.vertical, 16)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .padding(.horizontal)
+            }
             
         }.padding(.bottom, 16)
         .edgesIgnoringSafeArea(.bottom)

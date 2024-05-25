@@ -21,12 +21,12 @@ class MovieViewModel: ObservableObject {
     @Published var filterOriginalLanguagePopular: [String] = []
     @Published var selectOriginalLanguagePopular: String? = nil
     @Published var filterVoteAveragePopular: [Double] = []
-    @Published var selectVoteAveragePopular: Double = 0
+    @Published var selectVoteAveragePopular: Double = 100
     @Published var filterAdultTopRated: Bool = false
     @Published var filterOriginalLanguageTopRated: [String] = []
     @Published var selectOriginalLanguageTopRated: String? = nil
     @Published var filterVoteAverageTopRated: [Double] = []
-    @Published var selectVoteAverageTopRated: Double = 0
+    @Published var selectVoteAverageTopRated: Double = 100
     
     init() {
         
@@ -87,9 +87,29 @@ class MovieViewModel: ObservableObject {
     
     private func getFiltersTopRated() {
         
-        guard let movies = popularResponseMovies?.results else { return }
+        guard let movies = topRatedResponseMovies?.results else { return }
         filterOriginalLanguageTopRated = Array(Set(movies.compactMap { $0.originalLanguage }))
         filterVoteAverageTopRated = Array(Set(movies.compactMap { $0.voteAverage }))
+    }
+    
+    func filterMovies() {
+        
+        switch (typeSelect) {
+        case .popular:
+            popularMovies = (popularResponseMovies?.results ?? []).filter { $0.adult == filterAdultPopular }
+            if let languagePopular = selectOriginalLanguagePopular {
+                popularMovies = popularMovies.filter { $0.originalLanguage == languagePopular }
+            }
+            popularMovies = popularMovies.filter { (0...(selectVoteAveragePopular/10)).contains($0.voteAverage ?? 0) }
+        case .topRated:
+            topRatedMovies = (topRatedResponseMovies?.results ?? []).filter { $0.adult == filterAdultPopular }
+            if let languagePopular = selectOriginalLanguageTopRated {
+                topRatedMovies = topRatedMovies.filter { $0.originalLanguage == languagePopular }
+            }
+            topRatedMovies = topRatedMovies.filter { (0...(selectVoteAverageTopRated/10)).contains($0.voteAverage ?? 0) }
+        }
+        
+        showFilters.toggle()
     }
  
     func getImageUrl(_ patch: String?) -> URL? {
