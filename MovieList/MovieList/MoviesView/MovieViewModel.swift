@@ -19,10 +19,14 @@ class MovieViewModel: ObservableObject {
     @Published var showFilters: Bool = false
     @Published var filterAdultPopular: Bool = false
     @Published var filterOriginalLanguagePopular: [String] = []
+    @Published var selectOriginalLanguagePopular: String? = nil
     @Published var filterVoteAveragePopular: [Double] = []
+    @Published var selectVoteAveragePopular: Double = 0
     @Published var filterAdultTopRated: Bool = false
     @Published var filterOriginalLanguageTopRated: [String] = []
+    @Published var selectOriginalLanguageTopRated: String? = nil
     @Published var filterVoteAverageTopRated: [Double] = []
+    @Published var selectVoteAverageTopRated: Double = 0
     
     init() {
         
@@ -101,6 +105,10 @@ class MovieViewModel: ObservableObject {
     
     func changeToTopRated() {
         typeSelect = .topRated
+    }
+    
+    func changeShowFilters() {
+        showFilters.toggle()
     }
 }
 

@@ -36,6 +36,10 @@ struct HomeMovies: View {
             .offset(y: -self.keyboardHeightHelper.keyboardHeight)
             
         }.edgesIgnoringSafeArea(.bottom)
+            .sheet(isPresented: $viewModel.showFilters) {
+                FiltersView()
+                    .environmentObject(viewModel)
+            }
     }
     
     @ViewBuilder

@@ -14,6 +14,9 @@
 		48674CFA2C01142C00533FB5 /* MovieMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48674CF92C01142C00533FB5 /* MovieMocks.swift */; };
 		48674CFD2C01359F00533FB5 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48674CFC2C01359F00533FB5 /* SearchBar.swift */; };
 		48674D002C015A6900533FB5 /* KeyboardHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48674CFF2C015A6900533FB5 /* KeyboardHeightHelper.swift */; };
+		48674D042C015DF000533FB5 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48674D032C015DF000533FB5 /* FiltersView.swift */; };
+		48674D062C01640300533FB5 /* ToggleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48674D052C01640300533FB5 /* ToggleOption.swift */; };
+		48674D0C2C01735500533FB5 /* CapsuleFilterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48674D0B2C01735500533FB5 /* CapsuleFilterCard.swift */; };
 		48B436A42C003D4200B38B03 /* MovieListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436A32C003D4200B38B03 /* MovieListApp.swift */; };
 		48B436A62C003D4200B38B03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436A52C003D4200B38B03 /* ContentView.swift */; };
 		48B436A82C003D4400B38B03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B436A72C003D4400B38B03 /* Assets.xcassets */; };
@@ -53,6 +56,9 @@
 		48674CF92C01142C00533FB5 /* MovieMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMocks.swift; sourceTree = "<group>"; };
 		48674CFC2C01359F00533FB5 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		48674CFF2C015A6900533FB5 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
+		48674D032C015DF000533FB5 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
+		48674D052C01640300533FB5 /* ToggleOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleOption.swift; sourceTree = "<group>"; };
+		48674D0B2C01735500533FB5 /* CapsuleFilterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleFilterCard.swift; sourceTree = "<group>"; };
 		48B436A02C003D4200B38B03 /* MovieList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B436A32C003D4200B38B03 /* MovieListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListApp.swift; sourceTree = "<group>"; };
 		48B436A52C003D4200B38B03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				48674CFC2C01359F00533FB5 /* SearchBar.swift */,
+				48674D052C01640300533FB5 /* ToggleOption.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -146,6 +153,23 @@
 				48674CFF2C015A6900533FB5 /* KeyboardHeightHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		48674D022C015DA500533FB5 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				48674D0A2C01732500533FB5 /* Cards */,
+				48674D032C015DF000533FB5 /* FiltersView.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		48674D0A2C01732500533FB5 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				48674D0B2C01735500533FB5 /* CapsuleFilterCard.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		48B436972C003D4200B38B03 = {
@@ -171,6 +195,7 @@
 		48B436A22C003D4200B38B03 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				48674D022C015DA500533FB5 /* Filters */,
 				48674CFE2C015A5500533FB5 /* Helpers */,
 				48674CFB2C01358A00533FB5 /* Components */,
 				48674CF32C010D4300533FB5 /* MoviesView */,
@@ -357,6 +382,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48674D062C01640300533FB5 /* ToggleOption.swift in Sources */,
+				48674D042C015DF000533FB5 /* FiltersView.swift in Sources */,
 				48674CF22C00E9C000533FB5 /* MovieModel.swift in Sources */,
 				48B436D62C006ADB00B38B03 /* RemoteGateway.swift in Sources */,
 				48B436A62C003D4200B38B03 /* ContentView.swift in Sources */,
@@ -364,6 +391,7 @@
 				48674CFA2C01142C00533FB5 /* MovieMocks.swift in Sources */,
 				48674D002C015A6900533FB5 /* KeyboardHeightHelper.swift in Sources */,
 				48674CFD2C01359F00533FB5 /* SearchBar.swift in Sources */,
+				48674D0C2C01735500533FB5 /* CapsuleFilterCard.swift in Sources */,
 				48674CEF2C00E48400533FB5 /* MovieCard.swift in Sources */,
 				48B436DA2C00716E00B38B03 /* UseCases.swift in Sources */,
 				48B436A42C003D4200B38B03 /* MovieListApp.swift in Sources */,
