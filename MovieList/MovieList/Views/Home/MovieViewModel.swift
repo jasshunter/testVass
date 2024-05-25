@@ -102,7 +102,7 @@ class MovieViewModel: ObservableObject {
             }
             popularMovies = popularMovies.filter { (0...(selectVoteAveragePopular/10)).contains($0.voteAverage ?? 0) }
         case .topRated:
-            topRatedMovies = (topRatedResponseMovies?.results ?? []).filter { $0.adult == filterAdultPopular }
+            topRatedMovies = (topRatedResponseMovies?.results ?? []).filter { $0.adult == filterAdultTopRated }
             if let languagePopular = selectOriginalLanguageTopRated {
                 topRatedMovies = topRatedMovies.filter { $0.originalLanguage == languagePopular }
             }
