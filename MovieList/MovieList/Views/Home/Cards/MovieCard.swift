@@ -15,25 +15,32 @@ struct MovieCard: View {
     
     var body: some View {
         
-        VStack(spacing: 0) {
+        ZStack(alignment: .topTrailing) {
             
-            WebImage(url: viewModel.getImageUrl(movie.posterPath))
-                .resizable()
-                .scaledToFill()
-                .frame(height: 236)
-                .clipped()
+            VStack(spacing: 0) {
+                
+                WebImage(url: viewModel.getImageUrl(movie.posterPath))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 236)
+                    .clipped()
+                
+                VStack(alignment: .leading, spacing: 6) {
+                    
+                    Text(movie.originalTitle ?? "")
+                        .bold()
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                    
+                    Text(movie.releaseDate ?? "")
+                    
+                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .padding(.horizontal, 16)
+            }
             
-            VStack(alignment: .leading, spacing: 6) {
-                
-                Text(movie.originalTitle ?? "")
-                    .bold()
-                    .lineLimit(2)
-                    .multilineTextAlignment(.leading)
-                
-                Text(movie.releaseDate ?? "")
-                
-            }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .padding(.horizontal, 16)
+            CircularProgress(progress: viewModel.getVoteAverage(movie.voteAverage))
+                .padding(.top, 220)
+                .padding(.trailing, 16)
             
         }.frame(height: 336)
             .background(Color.white)

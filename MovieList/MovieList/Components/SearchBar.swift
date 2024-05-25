@@ -20,12 +20,34 @@ struct SearchBar: View {
             HStack {
                 
                 Image(systemName: "magnifyingglass")
+                    .foregroundColor(Color.gray)
+                    .imageScale(.small)
+                
                 TextField(LocalizedStringKey("Search..."), text: $search)
+                    .disableAutocorrection(true)
                     .onChange(of: self.search) { newValue in
                         callback(newValue)
                     }
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            }
+                
+                if !search.isEmpty {
+                    
+                    Button(action: {
+                        
+                        search = ""
+                    }) {
+                        
+                        Image(systemName: "xmark")
+                            .foregroundColor(Color.gray)
+                            .imageScale(.small)
+                    }
+                }
+                    
+            }.padding(4)
+            .overlay(
+            
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.gray.opacity(0.8), lineWidth: 1)
+            )
             
             Button(action: {
                 

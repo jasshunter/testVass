@@ -130,6 +130,12 @@ class MovieViewModel: ObservableObject {
     func changeShowFilters() {
         showFilters.toggle()
     }
+    
+    func getVoteAverage(_ voteAverage: Double?) -> Double {
+        
+        guard let average = voteAverage else { return 0 }
+        return average/10
+    }
 }
 
 enum MovieType {
