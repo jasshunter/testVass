@@ -13,9 +13,9 @@
 
 + Demo
 
-https://raw.githubusercontent.com/jasshunter/testVass/main/MovieList/Screenshot/Video.mp4
+![](https://raw.githubusercontent.com/jasshunter/testVass/main/MovieList/Screenshot/Video.gif)
 
-+ Architecture
++ Architecture Model–view–viewmodel (MVVM)
 
 <img src='https://raw.githubusercontent.com/jasshunter/testVass/main/MovieList/Screenshot/Architecture1.png' height=960 />
 
