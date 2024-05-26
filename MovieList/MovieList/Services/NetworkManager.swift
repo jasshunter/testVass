@@ -10,7 +10,7 @@ import Alamofire
 
 struct NetworkManager {
     
-    static func basicRequest (url: String, body: [String: Any]? = nil, headers: HTTPHeaders = [.authorization(bearerToken: Constants.bearerToken)], method: HTTPMethod, successCallback: @escaping (Data) -> Void, errorCallback: @escaping (Data) -> Void, networkErrorCallback: @escaping (AFError) -> Void, session: Session = .default) {
+    static func basicRequest (url: String, body: [String: Any]? = nil, headers: HTTPHeaders = [.authorization(bearerToken: Constants.bearerToken)], method: HTTPMethod, session: Session = AF, successCallback: @escaping (Data) -> Void, errorCallback: @escaping (Data) -> Void, networkErrorCallback: @escaping (AFError) -> Void) {
         
         session.request("\(Constants.api)\(url)", method: method, parameters: body, encoding: JSONEncoding.default, headers: headers)
             .responseData { response in

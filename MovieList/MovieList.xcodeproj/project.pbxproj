@@ -21,6 +21,7 @@
 		488174BF2C024BEC00506009 /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488174BE2C024BEC00506009 /* CircularProgress.swift */; };
 		488174C52C02AE5C00506009 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488174C42C02AE5C00506009 /* NetworkManagerTests.swift */; };
 		488174C82C02BA4900506009 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488174C72C02BA4900506009 /* MockURLProtocol.swift */; };
+		4899F67F2C037F2200A56BA6 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4899F67E2C037F2200A56BA6 /* APIServiceTests.swift */; };
 		48B436A42C003D4200B38B03 /* MovieListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436A32C003D4200B38B03 /* MovieListApp.swift */; };
 		48B436A62C003D4200B38B03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B436A52C003D4200B38B03 /* ContentView.swift */; };
 		48B436A82C003D4400B38B03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B436A72C003D4400B38B03 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		488174BE2C024BEC00506009 /* CircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
 		488174C42C02AE5C00506009 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		488174C72C02BA4900506009 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		4899F67E2C037F2200A56BA6 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		48B436A02C003D4200B38B03 /* MovieList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B436A32C003D4200B38B03 /* MovieListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListApp.swift; sourceTree = "<group>"; };
 		48B436A52C003D4200B38B03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				48B436B52C003D4400B38B03 /* MovieListTests.swift */,
 				488174C42C02AE5C00506009 /* NetworkManagerTests.swift */,
+				4899F67E2C037F2200A56BA6 /* APIServiceTests.swift */,
 			);
 			path = MovieListTests;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4899F67F2C037F2200A56BA6 /* APIServiceTests.swift in Sources */,
 				488174C52C02AE5C00506009 /* NetworkManagerTests.swift in Sources */,
 				48B436B62C003D4400B38B03 /* MovieListTests.swift in Sources */,
 			);

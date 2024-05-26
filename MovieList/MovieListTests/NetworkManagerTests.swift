@@ -42,6 +42,7 @@ class NetworkManagerTests: XCTestCase {
         NetworkManager.basicRequest(
             url: "/test",
             method: .get,
+            session: session,
             successCallback: { data in
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
                 XCTAssertNotNil(json)
@@ -52,8 +53,7 @@ class NetworkManagerTests: XCTestCase {
             },
             networkErrorCallback: { _ in
                 XCTFail("Network error callback should not be called")
-            },
-            session: session
+            }
         )
         
         waitForExpectations(timeout: 5.0, handler: nil)
@@ -74,6 +74,7 @@ class NetworkManagerTests: XCTestCase {
         NetworkManager.basicRequest(
             url: "/test",
             method: .get,
+            session: session,
             successCallback: { _ in
                 XCTFail("Success callback should not be called")
             },
@@ -84,8 +85,7 @@ class NetworkManagerTests: XCTestCase {
             },
             networkErrorCallback: { _ in
                 XCTFail("Network error callback should not be called")
-            },
-            session: session
+            }
         )
         
         waitForExpectations(timeout: 5.0, handler: nil)
@@ -101,6 +101,7 @@ class NetworkManagerTests: XCTestCase {
         NetworkManager.basicRequest(
             url: "/test",
             method: .get,
+            session: session,
             successCallback: { _ in
                 XCTFail("Success callback should not be called")
             },
@@ -110,8 +111,7 @@ class NetworkManagerTests: XCTestCase {
             networkErrorCallback: { error in
                 XCTAssertNotNil(error)
                 expectation.fulfill()
-            },
-            session: session
+            }
         )
         
         waitForExpectations(timeout: 5.0, handler: nil)
