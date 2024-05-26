@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MockData {
+struct MovieMocks {
     
     func createMockMovie() -> Movie {
         return Movie(

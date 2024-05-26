@@ -50,7 +50,7 @@ struct MovieCard: View {
 }
 
 #Preview {
-    MovieCard(movie: MockData().createMockMovie())
+    MovieCard(movie: MovieMocks().createMockMovie())
         .frame(width: 156, height: 336)
         .environmentObject(MovieViewModel())
 }
