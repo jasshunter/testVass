@@ -6,8 +6,8 @@
 //
 
 import XCTest
-@testable import MovieList
 import Alamofire
+@testable import MovieList
 
 class NetworkManagerTests: XCTestCase {
     

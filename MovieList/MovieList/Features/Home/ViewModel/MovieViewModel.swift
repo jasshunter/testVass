@@ -7,8 +7,26 @@
 
 import Foundation
 
+#if DEBUG
+extension MovieViewModel {
+    func exposedPopularResponseMovies(_ data: MovieResponse? = nil) {
+        self.popularResponseMovies = data
+    }
+    func exposedTopRatedResponseMovies(_ data: MovieResponse? = nil) {
+        self.topRatedResponseMovies = data
+    }
+    func exposedGetFiltersPopular() {
+        self.getFiltersPopular()
+    }
+    func exposedGetFiltersTopRated() {
+        self.getFiltersTopRated()
+    }
+}
+#endif
+
 class MovieViewModel: ObservableObject {
     
+    private var apiService: APIService
     private var popularResponseMovies: MovieResponse? = nil
     private var topRatedResponseMovies: MovieResponse? = nil
     @Published var popularMovies: [Movie] = []
@@ -28,15 +46,16 @@ class MovieViewModel: ObservableObject {
     @Published var filterVoteAverageTopRated: [Double] = []
     @Published var selectVoteAverageTopRated: Double = 100
     
-    init() {
+    init(apiService: APIService = APIService()) {
         
+        self.apiService = apiService
         getPopularMovies()
         getTopRatedMovies()
     }
     
     func getPopularMovies() {
         
-        APIService().getPopularMovies(successCallback: { data in
+        apiService.getPopularMovies(successCallback: { data in
             self.popularResponseMovies = data
             self.popularMovies = data.results ?? []
             self.getFiltersPopular()
@@ -45,7 +64,7 @@ class MovieViewModel: ObservableObject {
     
     func getTopRatedMovies() {
         
-        APIService().getTopRatedMovies(successCallback: { data in
+        apiService.getTopRatedMovies(successCallback: { data in
             self.topRatedResponseMovies = data
             self.topRatedMovies = data.results ?? []
             self.getFiltersTopRated()
