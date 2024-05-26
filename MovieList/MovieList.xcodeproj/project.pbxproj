@@ -213,8 +213,8 @@
 		488174C32C028B4600506009 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				488174C62C02B97900506009 /* Mocks */,
 				48B436D72C006BCC00B38B03 /* Constants.swift */,
+				488174C62C02B97900506009 /* Mocks */,
 				48674CFB2C01358A00533FB5 /* Components */,
 			);
 			path = Commons;
